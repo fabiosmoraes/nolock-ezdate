@@ -16,8 +16,9 @@ export function _calculateEaster(year: number): Date {
   const L = I - J;
   const M = 3 + Math.floor((L + 40) / 44);
   const D = L + 28 - 31 * Math.floor(M / 4);
-  const month = M < 10 ? "0" + M : M;
-  const day = D < 10 ? "0" + D : D;
-  const easterDate = year + "-" + month + "-" + day;
+  const month = M < 10 ? '0' + M : M;
+  const day = D < 10 ? '0' + D : D;
+  const easterDate = year + '-' + month + '-' + day;
+
   return new Date(easterDate);
 }

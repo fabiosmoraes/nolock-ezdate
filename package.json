@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "types": "build/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "npx tsc",
+    "start": "npm run build && node test/index.js",
     "refreshVSToken": "vsts-npm-auth -config .npmrc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "build",
+    "dist",
     "src",
     "tsconfig.json",
     "README.md",
@@ -28,6 +30,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "date-fns": "^2.22.1"
+    "date-fns": "^2.22.1",
+    "rimraf": "^3.0.2"
   }
 }

@@ -1,26 +1,40 @@
-import { addBusinessDays } from 'date-fns';
+import { add, addBusinessDays } from 'date-fns';
 import { isHoliday } from '../holidays/index';
 import { currentDate } from '../current-date/index';
-import { formatDate } from '../format-date/index';
+import { formatDate, getDate } from '../date/index';
+import { TypeDate } from '../constants';
 
-export function isBusinessDay(date = currentDate()): boolean {
-  date = formatDate(date);
+export function isBusinessDay(
+  date = currentDate(),
+  hour = 17,
+  minute = 0,
+): boolean {
+  date = getDate(date);
+
   const weekday = date.getDay();
-  if (weekday < 6) {
+
+  if (weekday > 0 && weekday < 6) {
+    if (formatDate(date, TypeDate.DB) == formatDate(new Date(), TypeDate.DB)) {
+      if (date.getTime() >= new Date().setHours(hour, minute, 0, 0))
+        return false;
+    }
     return !isHoliday(date);
   }
   return false;
 }
 
 export function getBusinessDay(date = currentDate()): Date {
-  date = formatDate(date);
+  date = getDate(date);
+
   while (!isBusinessDay(date)) {
-    console.log(date);
     date = addBusinessDays(date, 1);
   }
+
+  date.setHours(0, 0, 0, 0);
+
   return date;
 }
 
 export function getNextBusinessDay(date = currentDate()): Date {
-  return getBusinessDay(addBusinessDays(formatDate(date), 1));
+  return getBusinessDay(add(getDate(date), { days: 1 }));
 }
