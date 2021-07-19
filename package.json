@@ -1,5 +1,5 @@
 {
-  "name": "@bank/date",
+  "name": "@ez/date",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -19,7 +19,15 @@
     "prettier.json"
   ],
   "keywords": [
-    "date"
+    "date",
+    "brazil",
+    "brasil",
+    "ez",
+    "data",
+    "feriado",
+    "holiday",
+    "business",
+    "day"
   ],
   "author": "Ronieri/Fabio",
   "license": "ISC",

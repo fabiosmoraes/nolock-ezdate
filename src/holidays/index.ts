@@ -24,20 +24,16 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
   const goodFridayDate = _calculateGoodFriday(easterDate);
 
   return [
-    { date: formatDate(easterDate, TypeDate.DB), description: 'Páscoa' },
     {
-      date: formatDate(corpusChristiDate, TypeDate.DB),
-      description: 'Corpus Christi',
+      date: formatDate(new Date(`${String(year)}-01-01`), TypeDate.DB),
+      description: 'Ano Novo',
     },
     { date: formatDate(carnivalDate, TypeDate.DB), description: 'Carnaval' },
     {
       date: formatDate(goodFridayDate, TypeDate.DB),
       description: 'Sexta-feira Santa',
     },
-    {
-      date: formatDate(new Date(`${String(year)}-01-01`), TypeDate.DB),
-      description: 'Ano Novo',
-    },
+    { date: formatDate(easterDate, TypeDate.DB), description: 'Páscoa' },
     {
       date: formatDate(new Date(`${String(year)}-04-21`), TypeDate.DB),
       description: 'Tiradentes',
@@ -45,6 +41,10 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
     {
       date: formatDate(new Date(`${String(year)}-05-01`), TypeDate.DB),
       description: 'Dia do Trabalho',
+    },
+    {
+      date: formatDate(corpusChristiDate, TypeDate.DB),
+      description: 'Corpus Christi',
     },
     {
       date: formatDate(new Date(`${String(year)}-09-07`), TypeDate.DB),
@@ -71,9 +71,10 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
 
 export function isHoliday(date = currentDate()): boolean {
   date = getDate(date);
+
   const nationalHolidays = getNationalHolidays(date.getFullYear());
 
   return nationalHolidays.some((holiday) => {
-    holiday.date === formatDate(date, TypeDate.DB);
+    return holiday.date === formatDate(date, TypeDate.DB);
   });
 }

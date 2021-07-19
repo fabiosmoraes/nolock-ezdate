@@ -1,5 +1,5 @@
 import { currentDate } from '../current-date';
-import { add, format } from 'date-fns';
+import { add, format, parse } from 'date-fns';
 import { typeDate, TypeDate } from '../constants';
 
 export function getDate(date: string | Date): Date {
