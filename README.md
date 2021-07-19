@@ -6,7 +6,8 @@
 ## Description
 
 
-[@nolock/ezdate](https://dev.azure.com/ti0489/Banco%20Digital%20-%20Oficial/_packaging?_a=feed&feed=bank_feed) is a date module 
+[@nolock/ezdate](https://github.com/fabiosmoraes/nolock-ezdate.git) is a date module designed for brazilian, it validates business days based on national holidays.
+
 
 ## Installation
 
@@ -220,7 +221,6 @@ console.log(isHoliday('2021-01-01'));
 ```
 
 ---
-
 
 ## License
 
