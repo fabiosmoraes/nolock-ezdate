@@ -35,6 +35,6 @@ export function getBusinessDay(date = currentDate()): Date {
   return date;
 }
 
-export function getNextBusinessDay(date = currentDate()): Date {
-  return getBusinessDay(add(getDate(date), { days: 1 }));
+export function getNextBusinessDay(date = currentDate(), days = 1): Date {
+  return getBusinessDay(add(getDate(date), { days }));
 }
