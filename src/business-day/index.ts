@@ -5,7 +5,7 @@ import { formatDate, getDate } from '../date/index';
 import { TypeDate } from '../constants';
 
 export function isBusinessDay(
-  date = currentDate(),
+  date: string | Date = currentDate(),
   hour = 17,
   minute = 0,
 ): boolean {
@@ -23,7 +23,7 @@ export function isBusinessDay(
   return false;
 }
 
-export function getBusinessDay(date = currentDate()): Date {
+export function getBusinessDay(date: string | Date = currentDate()): Date {
   date = getDate(date);
 
   while (!isBusinessDay(date)) {
@@ -35,6 +35,9 @@ export function getBusinessDay(date = currentDate()): Date {
   return date;
 }
 
-export function getNextBusinessDay(date = currentDate(), days = 1): Date {
+export function getNextBusinessDay(
+  date: string | Date = currentDate(),
+  days = 1,
+): Date {
   return getBusinessDay(add(getDate(date), { days }));
 }

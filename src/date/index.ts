@@ -10,7 +10,7 @@ export function getDate(date: string | Date): Date {
   return date;
 }
 
-export function getYear(date = currentDate()): number {
+export function getYear(date: string | Date = currentDate()): number {
   date = getDate(date);
 
   return date.getFullYear();

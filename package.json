@@ -1,7 +1,7 @@
 {
   "name": "@nolock/ezdate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "@nolock/ezdate is a date module designed for brazilian, it validates business days based on national holidays.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -42,11 +42,11 @@
   "devDependencies": {
     "@types/node": "^16.3.2",
     "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "date-fns": "^2.22.1",
-    "rimraf": "^3.0.2"
+    "date-fns": "^2.22.1"
   }
 }

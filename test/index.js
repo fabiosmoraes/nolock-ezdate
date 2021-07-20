@@ -1,6 +1,7 @@
 const { currentDate, isBusinessDay, getBusinessDay, getNextBusinessDay, getNationalHolidays, isHoliday, getDate, getYear, formatDate, TypeDate } = require("../dist");
 
 console.log('isBussinesDay -', isBusinessDay());
+console.log('isBussinesDay -', isBusinessDay('2021-07-17'));
 console.log('getBusinessDay -', getBusinessDay('2021-12-25'));
 console.log('getNextBusinessDay -', getNextBusinessDay(new Date(), 5));
 console.log('getNationalHolidays -', getNationalHolidays());

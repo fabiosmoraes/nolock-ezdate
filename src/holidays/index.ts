@@ -69,7 +69,7 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
   ];
 }
 
-export function isHoliday(date = currentDate()): boolean {
+export function isHoliday(date: string | Date = currentDate()): boolean {
   date = getDate(date);
 
   const nationalHolidays = getNationalHolidays(date.getFullYear());
