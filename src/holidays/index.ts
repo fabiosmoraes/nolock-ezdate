@@ -25,7 +25,7 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
 
   return [
     {
-      date: formatDate(new Date(`${String(year)}-01-01`), TypeDate.DB),
+      date: `${String(year)}-01-01`,
       description: 'Ano Novo',
     },
     { date: formatDate(carnivalDate, TypeDate.DB), description: 'Carnaval' },
@@ -35,11 +35,11 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
     },
     { date: formatDate(easterDate, TypeDate.DB), description: 'Páscoa' },
     {
-      date: formatDate(new Date(`${String(year)}-04-21`), TypeDate.DB),
+      date: `${String(year)}-04-21`,
       description: 'Tiradentes',
     },
     {
-      date: formatDate(new Date(`${String(year)}-05-01`), TypeDate.DB),
+      date: `${String(year)}-05-01`,
       description: 'Dia do Trabalho',
     },
     {
@@ -47,23 +47,23 @@ export function getNationalHolidays(year = getYear()): Holiday[] {
       description: 'Corpus Christi',
     },
     {
-      date: formatDate(new Date(`${String(year)}-09-07`), TypeDate.DB),
+      date: `${String(year)}-09-07`,
       description: 'Independência do Brasil',
     },
     {
-      date: formatDate(new Date(`${String(year)}-10-12`), TypeDate.DB),
+      date: `${String(year)}-10-12`,
       description: 'Nossa Senhora Aparecida',
     },
     {
-      date: formatDate(new Date(`${String(year)}-11-02`), TypeDate.DB),
+      date: `${String(year)}-11-02`,
       description: 'Dia de Finados',
     },
     {
-      date: formatDate(new Date(`${String(year)}-11-15`), TypeDate.DB),
+      date: `${String(year)}-11-15`,
       description: 'Proclamação da República',
     },
     {
-      date: formatDate(new Date(`${String(year)}-12-25`), TypeDate.DB),
+      date: `${String(year)}-12-25`,
       description: 'Natal',
     },
   ];

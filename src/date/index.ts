@@ -19,8 +19,7 @@ export function getYear(date: string | Date = currentDate()): number {
 export function formatDate(date: string | Date, type: TypeDate) {
   date = getDate(date);
 
-  return format(
-    add(date, { minutes: new Date().getTimezoneOffset() }),
-    typeDate[type],
-  );
+  date = format(date, typeDate[type]);
+
+  return date;
 }
