@@ -6,7 +6,7 @@ import { TypeDate } from '../constants';
 
 export function isBusinessDay(
   date: string | Date = currentDate(),
-  hour = 17,
+  hour = 20,
   minute = 0,
 ): boolean {
   date = getDate(date);
@@ -15,7 +15,7 @@ export function isBusinessDay(
 
   if (weekday > 0 && weekday < 6) {
     if (formatDate(date, TypeDate.DB) == formatDate(new Date(), TypeDate.DB)) {
-      if (date.getTime() >= new Date().setHours(hour, minute, 0, 0))
+      if (date.getTime() >= new Date().setUTCHours(hour, minute, 0, 0))
         return false;
     }
     return !isHoliday(date);
