@@ -1,10 +1,11 @@
-import { currentDate } from '../current-date';
-import { add, format, parse } from 'date-fns';
+import { format } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
 import { typeDate, TypeDate } from '../constants';
+import { currentDate } from '../current-date';
 
 export function getDate(date: string | Date): Date {
   if (!(date instanceof Date)) {
-    date = add(new Date(date), { minutes: new Date().getTimezoneOffset() });
+    date = utcToZonedTime(date, 'America/Sao_Paulo');
   }
 
   return date;

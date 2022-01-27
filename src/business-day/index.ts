@@ -1,8 +1,8 @@
 import { add, addBusinessDays } from 'date-fns';
-import { isHoliday } from '../holidays/index';
+import { TypeDate } from '../constants';
 import { currentDate } from '../current-date/index';
 import { formatDate, getDate } from '../date/index';
-import { TypeDate } from '../constants';
+import { isHoliday } from '../holidays/index';
 
 export function isBusinessDay(
   date: string | Date = currentDate(),
