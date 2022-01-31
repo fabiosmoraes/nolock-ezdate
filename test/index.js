@@ -16,4 +16,4 @@ console.log('formatDate -', formatDate('2021-07-20T23:59:00.371Z', TypeDate.BR))
 
 console.log('getNationalHolidays -', getNationalHolidays('2024'));
 
-console.log('isBussinesDay -', isBusinessDay('2022-01-27T11:37:10.322Z'));
+console.log('isBussinesDay -', isBusinessDay(new Date(), 19, 30));
