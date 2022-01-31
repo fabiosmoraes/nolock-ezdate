@@ -15,7 +15,7 @@ export function isBusinessDay(
 
   if (weekday > 0 && weekday < 6) {
     if (formatDate(date, TypeDate.DB) == formatDate(new Date(), TypeDate.DB)) {
-      if (date.getTime() >= new Date().setUTCHours(hour, minute, 0, 0))
+      if (date.getTime() >= getDate(new Date()).setHours(hour, minute, 0, 0))
         return false;
     }
     return !isHoliday(date);
