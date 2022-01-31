@@ -4,9 +4,7 @@ import { typeDate, TypeDate } from '../constants';
 import { currentDate } from '../current-date';
 
 export function getDate(date: string | Date): Date {
-  if (!(date instanceof Date)) {
-    date = utcToZonedTime(date, 'America/Sao_Paulo');
-  }
+  date = utcToZonedTime(date, 'America/Sao_Paulo');
 
   return date;
 }
