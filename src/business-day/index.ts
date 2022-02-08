@@ -23,6 +23,50 @@ export function isBusinessDay(
   return false;
 }
 
+interface BusinessDayBetweenHoursParam {
+  date: string | Date;
+  initial_hour: number;
+  initial_minute?: number;
+  final_hour: number;
+  final_minute?: number;
+}
+
+export function isBusinessDayBetweenHours(
+  businessDayBetweenHoursParam: BusinessDayBetweenHoursParam,
+): boolean {
+  const {
+    date: dateParam,
+    initial_hour,
+    initial_minute,
+    final_hour,
+    final_minute,
+  } = businessDayBetweenHoursParam;
+
+  let date = getDate(dateParam);
+
+  const weekday = date.getDay();
+
+  if (weekday > 0 && weekday < 6) {
+    if (formatDate(date, TypeDate.DB) == formatDate(new Date(), TypeDate.DB)) {
+      if (
+        date.getTime() <=
+          getDate(new Date()).setHours(
+            initial_hour,
+            initial_minute ?? 0,
+            0,
+            0,
+          ) ||
+        date.getTime() >=
+          getDate(new Date()).setHours(final_hour, final_minute ?? 0, 0, 0)
+      )
+        return false;
+    }
+    return !isHoliday(date);
+  }
+
+  return false;
+}
+
 export function getBusinessDay(date: string | Date = currentDate()): Date {
   date = getDate(date);
 

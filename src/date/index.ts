@@ -22,3 +22,19 @@ export function formatDate(date: string | Date, type: TypeDate) {
 
   return date;
 }
+
+export function formatDateBRToDB(date: string) {
+  if (!date.includes('/')) {
+    throw new Error('Data não está no formato brasileiro');
+  }
+
+  date = date.split('/').reverse().join('-');
+
+  const dateDB = new Date(date);
+
+  if (dateDB.toString() == 'Invalid Date') {
+    throw new Error('Data inválida');
+  }
+
+  return date;
+}
