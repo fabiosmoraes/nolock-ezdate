@@ -1,6 +1,9 @@
-import { TimeInterval } from 'src/interfaces/time-interval.interface';
+import { TimeInterval } from '../interfaces/time-interval.interface';
 
-export function inTheTimeInterval(time: string, interval: TimeInterval): any {
+export function inTheTimeInterval(
+  time: string,
+  interval: TimeInterval,
+): boolean {
   const { start: startTimeInterval, end: endTimeInterval } = interval;
 
   const [startHours, startMinutes, startSeconds, ...startTime] =
@@ -24,7 +27,6 @@ export function inTheTimeInterval(time: string, interval: TimeInterval): any {
 
   const convertTimeInMinutes = (startTimeInMinutes, endTimeInMInutes) => {
     const timeInMinutes = +timeHours * 60 + +timeMinutes + +timeSeconds / 60;
-    console.log('timeInMinutes', timeInMinutes);
 
     if (startTimeInMinutes < 720 || endTimeInMInutes < 720)
       return timeInMinutes;
